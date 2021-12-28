@@ -1,0 +1,36 @@
+- name: Executing the script based on operating systems
+  become: yes
+  hosts: linux
+  tasks:
+     - name: Installing deep security agent on Ubuntu 16.04
+       shell: curl -L http://193.192.100.235/repository/custom/Trenmicro/AgentDeploymentScript_Ubuntu16.sh | bash
+       when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
+
+     - name: Installing deep security agent on Ubuntu 18.04
+       shell: curl -L http://193.192.100.235/repository/custom/Trenmicro/AgentDeploymentScript_Ubuntu18.sh | bash
+       when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '18.04'
+   
+     - name: Installing deep security agent on Debian 8
+       shell: curl -L http://193.192.100.235/repository/custom/Trendmicro/AgentDeploymentScript_Debian8.sh | bash
+       when: ansible_distribution == 'Debian' and ansible_distribution_major_version == '8'
+ 
+     - name: Installing deep security agent on Debian 9
+       shell: curl -L http://193.192.100.235/repository/custom/Trendmicro/AgentDeploymentScript_Debian9.sh | bash
+       when: ansible_distribution == 'Debian' and ansible_distribution_major_version == '9'
+
+     - name: Installing deep security agent on Centos 6
+       shell: curl -L http://193.192.100.235/repository/custom/Trendmicro/AgentDeploymentScript_Centos6.sh | bash
+       when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6'
+
+     - name: Installing deep security agent on Centos 7
+       shell: curl -L http://193.192.100.235/repository/custom/Trendmicro/AgentDeploymentScript_Centos7.sh | bash
+       when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7'
+   
+     - name: Installing deep security agent on RHEL5
+       shell: curl -L http://193.192.100.235/repository/custom/Trendmicro/AgentDeploymentScript_RHEL.sh | bash
+       when: ansible_distribution == 'RedHat' and ansible_distribution_major_version == '7'
+   
+     - name: Installing deep security agent on RHEL6
+       shell: curl -L http://193.192.100.235/repository/custom/Trendmicro/AgentDeploymentScript_RHEL6.sh | bash
+       when: ansible_distribution == 'RedHat' and ansible_distribution_major_version == '7'
+
