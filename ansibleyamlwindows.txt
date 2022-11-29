@@ -2,8 +2,8 @@
   hosts: domainwindows
   tasks:
      - name: Executing deep security install script on Win2K12-Win2K16-Win2K19
-       win_shell: iex ((New-Object System.Net.WebClient).DownloadString('http://193.192.100.235/repository/custom/Trendmicro/AgentDeploymentScript_Win.ps1'))
+       win_shell: iex ((New-Object System.Net.WebClient).DownloadString('http://REPO/repository/custom/Trendmicro/AgentDeploymentScript_Win.ps1'))
        when: ansible_distribution == 'Microsoft Windows Server 2019 Standard' or ansible_distribution == 'Microsoft Windows Server 2016 Standard' or ansible_distribution == 'Microsoft Windows Server 2012 R2 Standard' or ansible_distribution == 'Microsoft Windows Server 2008 R2 Enterprise'
      - name: Executing deep security install script on Win2k3
-       win_shell: iex (New-Object System.Net.WebClient).DownloadString('http://repo.turk.net/repository/custom/%5C/AgentDeploymentScriptWin2003.ps1'))
+       win_shell: iex (New-Object System.Net.WebClient).DownloadString('http://REPO/repository/custom/%5C/AgentDeploymentScriptWin2003.ps1'))
        when: ansible_distribution == 'Microsoft Windows Server 2003'
